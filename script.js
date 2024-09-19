@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const time = row.cells[0].innerText;
             for (let i = 1; i < row.cells.length; i++) {
                 row.cells[i].innerText = savedSchedule[time][i - 1];
+                row.cells[i].setAttribute('data-label', table.querySelectorAll('th')[i].innerText);
             }
         }
     }

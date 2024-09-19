@@ -8,6 +8,21 @@ body {
 .schedule-container {
     width: 100%;
     overflow-x: auto;
+    margin-bottom: 20px;
+}
+
+#resetButton {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#resetButton:hover {
+    background-color: #555;
 }
 
 .schedule-table {
@@ -27,22 +42,33 @@ body {
     color: white;
 }
 
+/* Mobile Styles */
 @media screen and (max-width: 600px) {
-    .schedule-table, .schedule-table thead, .schedule-table tbody, .schedule-table th, .schedule-table td, .schedule-table tr {
-        display: block;
+    .schedule-table thead {
+        display: none;
     }
 
-    .schedule-table tr {
-        margin-bottom: 10px;
-    }
-
-    .schedule-table th, .schedule-table td {
-        text-align: left;
+    .schedule-table, .schedule-table tbody, .schedule-table tr, .schedule-table td {
         display: block;
         width: 100%;
     }
 
-    .schedule-table th {
-        background-color: #555;
+    .schedule-table tr {
+        margin-bottom: 15px;
+    }
+
+    .schedule-table td {
+        text-align: left;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    .schedule-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-left: 15px;
+        font-weight: bold;
     }
 }
